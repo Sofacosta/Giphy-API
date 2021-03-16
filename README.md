@@ -1,10 +1,10 @@
-# TITLE OF PROJECT 
-## Name of project ( For example: Independent project #3 for Epicodus)
-### Project initiated: 00-00-0000
+# GIPHY API 
+## Giphy API 
+### Project initiated: 03-15-2021
 ### Project modified: 00-00-0000
-### By Sofia Acosta
+### By Sofia Acosta and Shannon Lee 
 ## Project Description
-This is a detailed description of the project. A summary of valuable information for the users and developers. 
+Create an application that allows users to search Giphy for interesting GIFs.
 ## Preview 
 * Link to GitHub Pages. 
 
@@ -46,3 +46,4 @@ This is a detailed description of the project. A summary of valuable information
 * Copyright 2021 Sofia Acosta
 ## Contact
 * Sofia Acosta sofiaacostarascon@gmail.com
+* Shannon Lee shannonleehj@gmail.com
