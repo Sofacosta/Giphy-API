@@ -9,24 +9,31 @@ $(function() {
     $('#keyword').val("");
     $('.showGifs').html("");
 
-    let request = new XMLHttpRequest();
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${searchQuery}&limit=5&offset=0&rating=g&lang=en`;
-
-    request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
-        const response = JSON.parse(this.responseText);
-        getElements(response);
+    let promise = new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${searchQuery}&limit=5&offset=0&rating=g&lang=en`;
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(request.response);
+        }
       }
-    };
+      request.open("GET", url, true);
+      request.send();
+    });
 
-    request.open("GET",url,true);
-    request.send();
-
-    function getElements(response) {
-      response.data.forEach(function(gif) {
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+      body.data.forEach(function(gif) {
         $('.showGifs').append(`<img src="${gif.images.original.url}" alt="${gif.title}"><br><br>`)
-      })
+      });
+    }, function(error) {
+      $('.showerrors').text('There was an error processing your request: ${error}');
+      
     }
+    
+  }
   });
 });
 
