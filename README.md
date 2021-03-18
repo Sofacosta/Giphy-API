@@ -34,7 +34,8 @@ Create an application that allows users to search Giphy for interesting GIFs.
 * Clone the project with $ git clone LINK TO GITHUB
 * Recreate this project's environment with $ npm install
 * Create a file to store variables you want to keep secret $ touch .env  
-* Create production environment with terminal command $ npm run build     
+* Create production environment with terminal command $ npm run build   
+* Create a key and save it in .env so you can run this project.   
  
 
 ## Known Bugs
