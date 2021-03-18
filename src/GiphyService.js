@@ -14,4 +14,19 @@ export default class GiphyService {
       request.send();
     });
   }
+  static getRandom() {
+    return new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+      const url = `https://api.giphy.com/v1/gifs/random?api_key=${process.env.API_KEY}&tag=&rating=g`;
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(request.response);
+        }
+      };
+      request.open("GET",url,true);
+      request.send();
+    });
+  }
 }   

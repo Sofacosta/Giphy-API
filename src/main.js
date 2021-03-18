@@ -25,5 +25,16 @@ $(function() {
       $('.showErrors').text(`There was an error processing your request: ${error}`);
     });
   });
+  $('#randomButton').on('click', function() {
+    clearFields();
+    let promise = GiphyService.getRandom();
+    promise.then(function(response){
+      const body = JSON.parse(response);
+      console.log(body.data.image_original_url);
+      $('.showGifs').html(`<img src="${body.data.images.original.url}" alt="${body.data.title}">`);
+    }, function(error){
+      $('.showErrors').text(`There was an error processing your request: ${error}`);
+    });
+  });
 });
 
